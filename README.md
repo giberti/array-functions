@@ -2,6 +2,11 @@
 
 Provides additional array functionality to augment the built in `array_*` functions for use in common calculations.
 
+## Quality
+
+[![Build Status](https://api.travis-ci.org/giberti/array-functions.svg?branch=master)](https://travis-ci.org/giberti/array-functions)
+
+
 #### string array_fingerprint($array)
 
 Creates a fingerprint for the array, useful for caching values.
