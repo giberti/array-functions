@@ -1,5 +1,13 @@
 {
     "name": "giberti/array-functions",
+    "description": "Helpers for calculating descriptive statistics on arrays.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Erik Giberti",
+            "homepage": "https://github.com/giberti"
+        }
+    ],
     "require-dev": {
         "phpunit/phpunit": "^7.4"
     },
