@@ -34,6 +34,16 @@ $mean = array_mean($values);
 echo $mean; // 2
 ```
 
+#### float array_range($array)
+
+Finds the difference between the minimum value and the maximum value in the array.
+```php
+$values = [1,2,3];
+$difference = array_range($values);
+echo $difference; // 2
+```
+
+
 #### float array_variance($array [, $sample = true])
 
 Finds the variance for a given array. Works with populations as well as samples.

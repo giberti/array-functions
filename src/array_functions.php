@@ -35,6 +35,20 @@ if (!function_exists('array_mean')) {
     }
 }
 
+if (!function_exists('array_range')) {
+    /**
+     * Returns the difference between the minimum value and maximum value
+     *
+     * @param array $array
+     *
+     * @return float
+     */
+    function array_range(array $array)
+    {
+        return max($array) - min($array);
+    }
+}
+
 if (!function_exists('array_variance')) {
     /**
      * Caclulates the variance for the provide array values
