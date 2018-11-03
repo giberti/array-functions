@@ -25,6 +25,20 @@ $fingerprint = array_fingerprint($values);
 echo $fingerprint; // f591c5a8a39f752a2040e2364e775aec
 ```
 
+#### float[] array_bucket($array, [$buckets = null])
+Groups array values into buckets suitable for source data for a histogram. Takes an optional parameter to force the number of buckets the content should be distributed into.
+```php
+$values = [1,2,2,3,3,3];
+$buckets = array_bucket($values);
+print_r($buckets);
+// Array (
+//           [[0.5,1.5)] => 1
+//           [[1.5,2.5)] => 2
+//           [[2.5,3.5]] => 3
+//       )
+```
+
+
 #### float array_mean($array)
 
 Finds the mean (average) value of the elements in an array of numeric values.
@@ -42,7 +56,6 @@ $values = [1,2,3];
 $difference = array_range($values);
 echo $difference; // 2
 ```
-
 
 #### float array_variance($array [, $sample = true])
 

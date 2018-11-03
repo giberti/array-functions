@@ -1,5 +1,68 @@
 <?php
 
+if (!function_exists('array_bucket')) {
+    /**
+     * Counts the frequency of a value falling within a range
+     *
+     * @param $array
+     * @param int $buckets
+     *
+     * @return array
+     */
+    function array_bucket($array, $buckets = null)
+    {
+
+        $min = min($array);
+        $max = max($array);
+        $range = ($max - $min);
+        if (0 === $range) {
+            // The entire data set is the same value
+            return ["[{$max}]" => count($array)];
+        }
+
+        // Automatically calculate buckets if it's not provided.
+        if (!$buckets) {
+            $buckets = round(sqrt(count($array)), 0);
+            if ($buckets <= 1) {
+                // A single bucket would be used, shortcut the response
+                return ["[{$min}-{$max}]" => count($array)];
+            }
+        }
+
+        // Calculate the interval and boundaries for the data
+        $interval = $range / $buckets;
+        $start = $min - ($interval/2);
+        $end = $start + $interval;
+        $data = [];
+
+        do {
+            // Determine if this is the last range
+            $last = $end > $max;
+            $key = "[{$start},{$end})"; // exclusive of end value
+            if ($last) {
+                $key = "[{$start},{$end}]"; // inclusive of end value
+            }
+
+            // Count occurrences in the range
+            $data[$key] = array_reduce($array, function($carry, $value) use ($start, $end, $last) {
+                if ($value >= $start && $value < $end) {
+                    $carry++;
+                } elseif ($last && $value >= $start && $value <= $end) {
+                    $carry++;
+                }
+
+                return $carry;
+            });
+
+            // Increment the window
+            $start = $end;
+            $end = $start + $interval;
+        } while ($start <= $max);
+
+        return $data;
+    }
+}
+
 if (!function_exists('array_fingerprint')) {
     /**
      * Creates a fingerprint of the provided data
