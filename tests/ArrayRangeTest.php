@@ -21,7 +21,7 @@ class ArrayRangeTest extends \PHPUnit\Framework\TestCase
     public function test_array_range($data, $expected)
     {
         $range = array_range($data);
-        if (version_compare(\PHPUnit\Runner\Version::id(), '8.0.0', 'gte')) {
+        if (version_compare(\PHPUnit\Runner\Version::id(), '8.0.0', '>=')) {
              $this->assertEqualsWithDelta($expected, $range, 0.01);
         } else {
             $this->assertEquals($expected, $range, '', 0.01);
