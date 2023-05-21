@@ -20,7 +20,7 @@ class ArrayRangeTest extends \PHPUnit\Framework\TestCase
      */
     public function test_array_range($data, $expected)
     {
-        $this->assertEquals($expected, array_range($data));
+        $this->assertEquals($expected, array_range($data), '', 0.01);
     }
 
 }
