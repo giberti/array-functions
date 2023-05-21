@@ -2,9 +2,11 @@
 
 Provides additional array functionality, augmenting the built in `array_*` functions for use in common descriptive statistic calculations.
 
+[![Build and Test](https://github.com/giberti/array-functions/actions/workflows/test-php.yml/badge.svg)](https://github.com/giberti/array-functions/actions/workflows/test-php.yml)
+
 ## Installing
 
-This library requires PHP 7.1 or newer.
+This library requires PHP 7.1 or newer, including 8.0, 8.1, and 8.2.
 
 ```
 composer require giberti/array-functions
