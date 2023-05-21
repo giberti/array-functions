@@ -2,10 +2,6 @@
 
 Provides additional array functionality, augmenting the built in `array_*` functions for use in common descriptive statistic calculations.
 
-## Quality
-
-[![Build Status](https://api.travis-ci.org/giberti/array-functions.svg?branch=master)](https://travis-ci.org/giberti/array-functions)
-
 ## Installing
 
 This library requires PHP 7.1 or newer.
